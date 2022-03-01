@@ -1,5 +1,6 @@
 package jpabook1.jpashop1.domain;
 
+import jpabook1.jpashop1.domain.Order.Order;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +16,7 @@ public class Member {
     @Id @GeneratedValue
     @Column(name ="member_id")
     private Long id;
+
     private String name;
 
     @Embedded
