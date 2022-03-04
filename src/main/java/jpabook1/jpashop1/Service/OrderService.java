@@ -4,6 +4,7 @@ import jpabook1.jpashop1.domain.Delivery;
 import jpabook1.jpashop1.domain.Member;
 import jpabook1.jpashop1.domain.Order.Order;
 import jpabook1.jpashop1.domain.Order.OrderItem;
+import jpabook1.jpashop1.domain.Order.OrderSearch;
 import jpabook1.jpashop1.domain.item.Item;
 import jpabook1.jpashop1.repository.ItemRepository;
 import jpabook1.jpashop1.repository.MemberRepository;
@@ -23,7 +24,7 @@ public class OrderService {
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
 
-    //주문색
+
     @Transactional
     public Long order(Long memberId, Long itemId, int count){
 
@@ -59,5 +60,9 @@ public class OrderService {
     }
 
     //검색
+    public List<Order> findOrders(OrderSearch orderSearch){
+        return orderRepository.findAllByString(orderSearch);
+
+    }
 
 }

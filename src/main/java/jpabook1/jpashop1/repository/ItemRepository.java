@@ -15,7 +15,7 @@ public class ItemRepository {
 
     public void save(Item item){
         if (item.getId()==null){
-            em.persist(em);//해당 아이템이 없을 때 새 아이템 등록
+            em.persist(item);//해당 아이템이 없을 때 새 아이템 등록
         }else{
             em.merge(item);//원래 있던 거에 머지
         }
@@ -26,7 +26,7 @@ public class ItemRepository {
     }
 
     public List<Item> findAll(){
-        return em.createQuery("select i fro Item i",Item.class)
+        return em.createQuery("select i from Item i",Item.class)
                 .getResultList();
     }
 
